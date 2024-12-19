@@ -31,16 +31,51 @@ However, the remaining flip-flops should be made ready to toggle only when all l
 /* write all the steps invloved */
 
 **PROGRAM**
-
+```
+module MULTIPLIER(a, b,y); input [3:0] a;
+input [3:0] b; output [7:0] y;
+wire t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15,c0,c1,c2,c3,c4,x1,x2,x3,x4,x5,x6,x7,x8;
+and(y[0],a[0],b[0]);
+and(t1,a[1],b[0]);
+and(t2,a[0],b[1]);
+and(t3,a[2],b[0]);
+and(t4,a[1],b[1]);
+and(t5,a[0],b[2]);
+and(t6,a[3],b[0]);
+and(t7,a[2],b[1]);
+and(t8,a[1],b[2]);
+and(t9,a[0],b[3]);
+and(t10,a[3],b[1]);
+and(t11,a[2],b[2]);
+and(t12,a[1],b[3]);
+and(t13,a[3],b[2]);
+and(t14,a[2],b[3]);
+and(t15,a[3],b[3]);
+fa a1(y[1],c0,t1,t2,1'b0); fa 
+a2(x1,x2,t3,t4,c0);
+fa a3(y[2],c1,x1,x2,t5); fa 
+a4(x3,x4,t6,t7,c1); fa a5(x5,x6,x3,x4,t8); 
+fa a6(y[3],c2,x5,x6,t9); fa 
+a7(x7,x8,t10,t11,c2); fa 
+s8(y[4],c3,x7,x8,t12);
+fa a9(y[5],c4,t13,t14,c3);
+fa a10(y[6],y[7],t15,c4,1'b0); endmodule
+module fa(s,co,a,b,cin); input a,b,cin;
+output s,co; xor(s,a,b,cin); wire 
+l1,l2,l3; and(l1,a,b); 
+and(l2,b,cin); and(l3,a,cin); 
+or(co,l1,l2,l3; endmodule
+```
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. 
 
 Developed by: RegisterNumber:
 */
 
 **RTL LOGIC UP COUNTER**
+![image](https://github.com/user-attachments/assets/327b02e0-16b4-44b1-9396-7db7e1b81a56)
 
 **TIMING DIAGRAM FOR IP COUNTER**
-
-**TRUTH TABLE**
+![image](https://github.com/user-attachments/assets/d9b1f18c-63cb-4ae5-80d2-8a549f8265a4)
 
 **RESULTS**
+The multiplier are simulated and synthesized using Verilog HDL. And implement in fFPGA.
